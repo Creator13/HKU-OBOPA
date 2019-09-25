@@ -7,14 +7,13 @@
 
 class GameOfLife {
 public:
+    unsigned int gen{0};
+
     GameOfLife(int gridSize, RuleSet *ruleSet);
-
     ~GameOfLife();
-
     void tick();
 
 private:
-    unsigned int gen{0};
     Grid *grid;
     RuleSet *rules;
 

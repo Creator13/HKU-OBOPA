@@ -1,11 +1,12 @@
+#include <stdexcept>
 #include "Grid.h"
 
 Grid::Grid(int size) : gridSize(size) {
-    initializeGrid();
+    allocate();
 }
 
-Grid::Grid(const Grid &_src) : gridSize(_src.gridSize){
-    initializeGrid();
+Grid::Grid(const Grid &_src) : gridSize(_src.gridSize) {
+    allocate();
 
     for (int i = 0; i < gridSize; i++) {
         for (int j = 0; j < gridSize; j++) {
@@ -22,14 +23,34 @@ Grid::~Grid() {
     delete grid;
 }
 
-void Grid::initializeGrid() {
-    grid = new bool*[gridSize];
+void Grid::copy(Grid* other) {
+    if (other->gridSize != gridSize) {
+        throw std::invalid_argument("grids must be of the same size");
+    }
+
+    for (int i = 0; i < gridSize; i++) {
+        for (int j = 0; j < gridSize; j++) {
+            setCell(i, j, other->getCell(i, j));
+        }
+    }
+}
+
+void Grid::copy(Grid other) {
+    if (other.gridSize != gridSize) {
+        throw std::invalid_argument("grids must be of the same size");
+    }
+
+    for (int i = 0; i < gridSize; i++) {
+        for (int j = 0; j < gridSize; j++) {
+            setCell(i, j, other.getCell(i, j));
+        }
+    }
+}
+
+void Grid::allocate() {
+    grid = new bool *[gridSize];
     for (int i = 0; i < gridSize; i++) {
         grid[i] = new bool[gridSize];
-
-        for (int j = 0; j < gridSize; j++) {
-            setCell(i, j, false);
-        }
     }
 }
 
@@ -39,6 +60,27 @@ void Grid::setCell(int x, int y, bool val) {
 
 bool Grid::getCell(int x, int y) {
     return grid[x][y];
+}
+
+int Grid::countLiveNeighbors(int x, int y) {
+    int count = 0;
+
+    for (int i = x - 1; i <= x + 1; i++) {
+        for (int j = y - 1; j <= y + 1; j++) {
+            // Exclude the cell itself
+            if (i == x && j == y) continue;
+
+            if (probePoint(i, j) && getCell(i, j)) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+bool Grid::probePoint(int x, int y) {
+    return x >= 0 && y >= 0 && x < gridSize && y < gridSize;
 }
 
 std::string Grid::toString() {

@@ -2,7 +2,7 @@
 #include <iostream>
 #include "GameOfLife.h"
 
-GameOfLife::GameOfLife(int gridSize, RuleSet* ruleSet) : grid(new Grid(gridSize)), rules(ruleSet) {
+GameOfLife::GameOfLife(int gridSize, RuleSet *ruleSet) : grid(new Grid(gridSize)), rules(ruleSet) {
     seedRandom();
 }
 
@@ -12,7 +12,12 @@ GameOfLife::~GameOfLife() {
 }
 
 void GameOfLife::tick() {
+    system("CLS");
+
+    rules->runGeneration(grid);
+
     std::cout << grid->toString();
+    std::cout << ++gen;
 }
 
 void GameOfLife::seedRandom() {

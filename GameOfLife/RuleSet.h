@@ -5,10 +5,11 @@
 
 class RuleSet {
 public:
-    RuleSet(Grid* grid);
-    virtual void checkCell(int x, int y) = 0;
-private:
-    Grid* grid;
+    RuleSet() = default;
+
+    virtual ~RuleSet() = default;
+
+    virtual void runGeneration(Grid *grid) = 0;
 };
 
 #endif

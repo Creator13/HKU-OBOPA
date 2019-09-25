@@ -1,10 +1,19 @@
-#include <iostream>
+#include <windows.h>
 #include "Grid.h"
 #include "GameOfLife.h"
+#include "StandardRuleSet.h"
 
 using namespace std;
 
 int main() {
-    GameOfLife* game = new GameOfLife(25, nullptr);
-    game->tick();
+    StandardRuleSet *rules = new StandardRuleSet();
+    GameOfLife *game = new GameOfLife(35, rules);
+    while (game->gen < 1000) {
+        game->tick();
+        Sleep(100);
+    }
+
+    delete game;
+
+    system("pause");
 }

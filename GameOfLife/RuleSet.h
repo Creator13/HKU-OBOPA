@@ -1,11 +1,14 @@
 #ifndef GAMEOFLIFE_RULESET_H
 #define GAMEOFLIFE_RULESET_H
 
-#include "Cell.h"
+#include "Grid.h"
 
 class RuleSet {
 public:
-    virtual void checkCell(Cell* cell) = 0;
+    RuleSet(Grid* grid);
+    virtual void checkCell(int x, int y) = 0;
+private:
+    Grid* grid;
 };
 
 #endif

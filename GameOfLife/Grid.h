@@ -11,8 +11,7 @@ public:
     Grid(const Grid &_grid);
     ~Grid();
 
-    void copy(Grid* grid); //@Edwin is er een betere manier om dit probleem op te lossen, in plaats van twee functies aan te maken voor een Grid en een Grid*?
-    void copy(Grid grid);
+    void copy(Grid* grid);
 
     bool getCell(int x, int y);
     void setCell(int x, int y, bool val);

@@ -24,5 +24,5 @@ void StandardRuleSet::runGeneration(Grid *grid) {
         }
     }
 
-    grid->copy(temp);
+    grid->copy(&temp);
 }

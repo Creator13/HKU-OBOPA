@@ -15,7 +15,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, Transaction& t);
 private:
     float amt; //@edwin ik wil deze const maken, maar dan klaagt hij dat hij de default assingment operator niet meer kan gebruiken. Fix?
-    tm* time;
+    std::tm* time;
 };
 
 

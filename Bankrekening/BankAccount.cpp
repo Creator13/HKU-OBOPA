@@ -7,14 +7,16 @@ BankAccount::BankAccount() : balance(0) {
 }
 
 BankAccount::~BankAccount() {
-//    delete transactionLog;
+    delete transactionLog;
 }
 
 BankAccount BankAccount::operator+(const Transaction& t) const {
+    // Create new account object, copy the values of the current account into it
     BankAccount acc = BankAccount();
     acc = *this;
-    acc.balance += t.getAmount();
-    acc.transactionLog->push_back(t);
+    // Add the transaction using the overloaded += operator
+    acc += t;
+    // Return the new object
     return acc;
 }
 
@@ -27,6 +29,7 @@ BankAccount& BankAccount::operator+=(const Transaction& t) {
 BankAccount& BankAccount::operator=(const BankAccount& rhs) {
     if (this != &rhs) {
         balance = rhs.balance;
+        // Deep-copy the transaction list to the other object
         transactionLog->assign(rhs.transactionLog->begin(), rhs.transactionLog->end());
     }
     return *this;

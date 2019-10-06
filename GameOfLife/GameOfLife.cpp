@@ -2,7 +2,8 @@
 #include <iostream>
 #include "GameOfLife.h"
 
-GameOfLife::GameOfLife(int gridSize, RuleSet *ruleSet) : grid(new Grid(gridSize)), rules(ruleSet) {
+GameOfLife::GameOfLife(int gridSize, RuleSet *ruleSet) : grid(new Grid(gridSize)), temp(Grid(gridSize)),
+                                                         rules(ruleSet) {
     seedRandom();
 }
 
@@ -14,10 +15,21 @@ GameOfLife::~GameOfLife() {
 void GameOfLife::tick() {
     system("CLS");
 
-    rules->runGeneration(grid);
+    temp.copy(grid);
+
+    for (int i = 0; i < grid->gridSize; i++) {
+        for (int j = 0; j < grid->gridSize; j++) {
+            int neighbours = grid->countLiveNeighbors(i, j);
+            bool cell = grid->getCell(i, j);
+
+            temp.setCell(i, j, rules->getCellStatus(cell, neighbours));
+        }
+    }
+
+    grid->copy(&temp);
 
     std::cout << grid->toString();
-    std::cout << ++gen;
+    std::cout << ++gen << std::endl;
 }
 
 void GameOfLife::seedRandom() {

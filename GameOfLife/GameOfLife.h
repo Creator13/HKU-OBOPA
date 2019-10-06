@@ -15,6 +15,7 @@ public:
 
 private:
     Grid *grid;
+    Grid temp;
     RuleSet *rules;
 
     void seedRandom();

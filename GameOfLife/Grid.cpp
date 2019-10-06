@@ -35,18 +35,6 @@ void Grid::copy(Grid* other) {
     }
 }
 
-void Grid::copy(Grid other) {
-    if (other.gridSize != gridSize) {
-        throw std::invalid_argument("grids must be of the same size");
-    }
-
-    for (int i = 0; i < gridSize; i++) {
-        for (int j = 0; j < gridSize; j++) {
-            setCell(i, j, other.getCell(i, j));
-        }
-    }
-}
-
 void Grid::allocate() {
     grid = new bool *[gridSize];
     for (int i = 0; i < gridSize; i++) {

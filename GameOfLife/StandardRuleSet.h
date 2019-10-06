@@ -4,8 +4,8 @@
 #include "RuleSet.h"
 
 class StandardRuleSet : public RuleSet {
-    void runGeneration(Grid* grid) override;
-
+//    void runGeneration(Grid* grid) override;
+    bool getCellStatus(bool current, int liveNeighbours) override;
 };
 
 #endif

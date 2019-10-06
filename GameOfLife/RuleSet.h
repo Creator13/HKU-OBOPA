@@ -9,7 +9,7 @@ public:
 
     virtual ~RuleSet() = default;
 
-    virtual void runGeneration(Grid *grid) = 0;
+    virtual bool getCellStatus(bool current, int liveNeighbours) = 0;
 };
 
 #endif

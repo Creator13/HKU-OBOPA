@@ -9,4 +9,4 @@ add_executable(Bankrekening Bankrekening/BankAccount.cpp Bankrekening/BankAccoun
 add_executable(FantasyGame FantasyGame/main.cpp FantasyGame/Actor.cpp FantasyGame/Actor.h FantasyGame/Elf.cpp FantasyGame/Elf.h FantasyGame/Orc.cpp FantasyGame/Orc.h FantasyGame/Decorator.cpp FantasyGame/Decorator.h FantasyGame/Farmer.cpp FantasyGame/Farmer.h FantasyGame/Soldier.cpp FantasyGame/Soldier.h FantasyGame/Shaman.cpp FantasyGame/Shaman.h)
 add_executable(AlgorithmsOpdracht AlgorithmsOpdracht/main.cpp)
 add_executable(ConcurrentVector ConcurrentVector/main.cpp ConcurrentVector/concurrent_vector.h)
-add_executable(Test main.cpp)
+add_executable(TemplateOpdracht TemplateOpdracht/main.cpp TemplateOpdracht/SortArray.h TemplateOpdracht/Queue.h)

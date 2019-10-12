@@ -10,3 +10,4 @@ add_executable(FantasyGame FantasyGame/main.cpp FantasyGame/Actor.cpp FantasyGam
 add_executable(AlgorithmsOpdracht AlgorithmsOpdracht/main.cpp)
 add_executable(ConcurrentVector ConcurrentVector/main.cpp ConcurrentVector/concurrent_vector.h)
 add_executable(TemplateOpdracht TemplateOpdracht/main.cpp TemplateOpdracht/SortArray.h TemplateOpdracht/Queue.h)
+add_executable(ParentChildPtr ParentChildPtr/main.cpp ParentChildPtr/Child.cpp ParentChildPtr/Child.h ParentChildPtr/Parent.cpp ParentChildPtr/Parent.h)

@@ -2,7 +2,7 @@
 
 // haal deze weg/zet hier commentaar voor om
 // de move-semantics code uit te schakelen
-//#define MOVESEMANTICS
+#define MOVESEMANTICS
 
 #include <string>
 #include <ostream>

@@ -53,9 +53,9 @@ Block& Block::operator=(Block&& other) noexcept {
     if (this == &other) return *this;
 
     delete data;
+    name = std::move(other.name);
     data = other.data;
     size = other.size;
-    name = other.name;
 
     other.name = "(nodata: has been moved)";
     other.size = 0;

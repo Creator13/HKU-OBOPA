@@ -12,3 +12,4 @@ add_executable(ConcurrentVector ConcurrentVector/main.cpp ConcurrentVector/concu
 add_executable(TemplateOpdracht TemplateOpdracht/main.cpp TemplateOpdracht/SortArray.h TemplateOpdracht/Queue.h)
 add_executable(SmartPointers SmartPointers/main.cpp SmartPointers/Child.cpp SmartPointers/Child.h SmartPointers/Parent.cpp SmartPointers/Parent.h)
 add_executable(ProducerConsumerOpdracht ProducerConsumerOpdracht/main.cpp)
+add_executable(MoveSemantics MoveSemantics/main.cpp MoveSemantics/Block.h MoveSemantics/Block.cpp)
